@@ -5,11 +5,11 @@
   </div>
   <div>
     <label> Digite o valor 1</label>
-    <input name="v1">
+    <input name="A">
   </div>
   <div>
     <label> Digite o valor 2</label>
-    <input name="v2">
+    <input name="B">
   </div>
   <div>
     <input type="submit" value="OK">
@@ -17,11 +17,11 @@
 </form>
 <br>
 <%
-if Request.QueryString("v1") = "" or Request.QueryString("v2") = ""  then
+if Request.QueryString("A") = "" or Request.QueryString("B") = ""  then
   response.write("Digite os valores 1 e 2")
 else
-  A = Cdbl(Request.QueryString("v1"))
-  B = Cdbl(Request.QueryString("v1"))
+  A = Cdbl(Request.QueryString("A"))
+  B = Cdbl(Request.QueryString("B"))
   dim MEDIA
   MEDIA = calcularMedia(A,B)
   response.write("Media = ")
@@ -34,9 +34,9 @@ function calcularMedia(A,B)
   if A = null and B = null then
     res = null
   else
-      res = A + B
-      res = res / 2
+      res = A * 3.5 + B * 7.5
+      res = res / 11
   end if
-  calcularMedia = res
+  calcularMedia = formatnumber(res,5)
   end function
 %>
