@@ -26,9 +26,9 @@ X = DatePart("h",Time())
 response.write "The hour is " & X & "<P>"
 
 If X >= 12 then
-	response.write "Good afternoon!"
+	response.write "<a href=""https://www.google.com""><b>Good</b> afternoon!</a>"
 else
-	response.write "Good morning!"
+	response.write "<a href='https://www.google.com'><b>Good</b> morning!</a>"
 end if
 
 
