@@ -1,8 +1,4 @@
-<%@LANGUAGE="VBSCRIPT" CODEPAGE="65001"%>
-<%
-response.Charset = "utf-8" 
-response.ContentType = "text/html"
-%> 
+<!--#include file="../caracteres_utf8.asp"-->
 
 Trabalhando com Números e Operações
 
@@ -16,14 +12,14 @@ Trabalhando com Números e Operações
 <%
 valor1=cint(request.form("valor1"))
 valor2=cint(request.form("valor2"))
+
 if valor1 <> "" and valor2 <> "" then
 %>
-
-Números <%=valor1%> e <%=valor2%> <br>
-<b>Adição: </b> <%=valor1+valor2%> <br>
-<b>Substração: </b> <%=valor1-valor2%> <br>
-<b>Multiplicação: </b> <%=valor1*valor2%> <br>
-<b>Divisão: </b> <%=valor1/valor2%> <br>
+    Números <%=valor1%> e <%=valor2%> <br>
+    <b>Adição: </b> <%=valor1+valor2%> <br>
+    <b>Substração: </b> <%=valor1-valor2%> <br>
+    <b>Multiplicação: </b> <%=valor1*valor2%> <br>
+    <b>Divisão: </b> <%=valor1/valor2%> <br>
 <%
 end if
 %>

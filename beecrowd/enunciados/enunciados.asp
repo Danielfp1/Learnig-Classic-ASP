@@ -18,19 +18,28 @@ function Enunciado(nomeDoArquivo)
 
 	if file.fileExists(caminho) then
 		Set outfile = file.OpenTextFile(caminho, 1, false)
+		temArquivo=true
 	else
 		Set outfile = file.CreateTextFile(caminho)
+		temArquivo=false
 	end if
 
-	'-- Leitura do arquivo
+'-- Leitura do arquivo
+If (temArquivo) Then
 	x=""
 	do while not outfile.AtEndOfStream
 		x=x & outfile.ReadLine
 		x=x & "<br>"
 	loop
-	x=x & "<br><br> Resolução: <br><br>"
+	x=x & "<br><br> <b>Resolução:</b> <br><br>"
 	response.write(x)
 	outfile.close
+	Else
+		Response.Write("<br><br>Criando arquivo...<br><br>")
+		nomeDoArquivo = Replace(nomeDoArquivo,".txt",".asp")
+		Response.Redirect(nomeDoArquivo)
+End If
+
 end function
 
 function CriarPasta()
