@@ -1,4 +1,5 @@
 <br>
+<!--#include file="funcoes.asp"-->
 <!--#include file="wpg_cnx.asp"-->
 <%
 session.LCID = 1046
@@ -6,19 +7,29 @@ session.LCID = 1046
 opc          = request.querystring("opc")
 botao        =  request.form("botao")
 cod          =  request.form("hfcod")
+nome         =  request.form("nome")
+cpf          =  request.form("cpf")
+foto         =  request.form("foto")
+email        =  request.form("email")
+nascimento   =  request.form("nascimento")
+endereco     =  request.form("endereco")
+cidade       =  request.form("cidade")
+curriculo    =  request.form("curriculo")
+
+
 
 if botao = "Incluir" then
 ' INCLUINDO OS DADOS RECEBIDOS NA TABELA
 
-'   sql = "insert into TABELA (CAMPO1,CAMPO2)"
-'   sql = sql & " values('"&variavel1&"','"&variavel2&"')"
+   sql = "insert into tb_professor (ds_professor,cpf,data_nascimento,endereco,cidade,curriculo,email,foto)"
+   sql = sql & " values('"&nome&"','"&cpf&"','"&data_banco(nascimento)&"','"&endereco&"','"&cidade&"','"&curriculo&"','"&email&"','"&foto&"')"
 '   response.write sql
 '   response.end
-'   conexao.execute(sql)
+   conexao.execute(sql)
 %>
 <script>
-    alert("Dados incluído com sucesso!")
-    parent.location = "cst_modelo.asp"
+    alert("Professor incluído com sucesso!")
+    parent.location = "cst_professor.asp"
 </script>
 <%
 elseif botao = "Alterar" then
