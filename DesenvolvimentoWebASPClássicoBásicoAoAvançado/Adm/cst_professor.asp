@@ -1,15 +1,16 @@
+<!--#include file="../../caracteres_utf8.asp"-->  
 <!--#include file="topo.asp"-->  
 <!--#include file="wpg_cnx.asp"-->  
 <%
 
-'sql = "select * from TABELA order by CAMPO "
-'set rs = conexao.execute(sql)
+sql = "select * from tb_professor order by ds_professor"
+set rs = conexao.execute(sql)
 
 %>
   <script>
 function Excluir(cod)
    {
-	 if(confirm("Confirma exclus�o?"))
+	 if(confirm("Confirma exclusão?"))
 	  {
 	    parent.location = "manu_modelo.asp?opc=exc&cod=" + cod ;
       }
@@ -19,34 +20,38 @@ function Excluir(cod)
  </script>
 
 <div class="container">
-<form action="frm_modelo.asp" method=post>
+<form action="frm_professor.asp" method=post>
 <button type="submit" class="btn btn-primary">Adicionar</button>
 
-  <h4>Plano</h4>
+  <h4>Professor</h4>
   <div class="table-responsive">          
   <table class="table">
     <thead>
       <tr>
         <th>#</th>
-        <th>Coluna 1</th>
-        <th>Coluna 2</th>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>Data de nacimento</th>
+        <th>E-mail</th>
         <th>#</th>		
       </tr>
     </thead>
     <tbody>
 <%
-'AQUI COME�A O DO WHILE ONDE TRAR� AS LINHAS DE ACORDO COM O SELECT FEITO
-'do while not rs.eof%>
+'AQUI COMEÇA O DO WHILE ONDE TRARÁ AS LINHAS DE ACORDO COM O SELECT FEITO
+do while not rs.eof%>
       <tr>
         <td>
- <a href="frm_modelo.asp?evt=alt&cod=<%'=rs("codigo")%>">
+ <a href="frm_modelo.asp?evt=alt&cod=<%=rs("cd_professor")%>">
 <img src="imagens/alt.jpg">
         </a>		
 		</td>
-        <td>Campo1 <%'=rs("CAMPO1")%></td>
-        <td>Campo2<%'=rs("CAMPO2")%></td>
+        <td><%=rs("ds_professor")%></td>
+        <td><%=rs("cpf")%></td>
+        <td><%=rs("data_nascimento")%></td>
+        <td><%=rs("email")%></td>
         <td>
- <a href="javascript:Excluir(<%'=rs("cd_plano")%>)">
+ <a href="javascript:Excluir(<%=rs("cd_professor")%>)">
  <img src="imagens/excluir.jpg">
         </a>		
 		</td>
@@ -54,8 +59,8 @@ function Excluir(cod)
       </tr>
 <%
 'LOOP DEPOIS DA LINHA PARA QUE SE REPITA ENQUANTO TIVER REGISTROS NO SELECT FEITO
-'rs.movenext
-'loop
+rs.movenext
+loop
 %>	  
     </tbody>
   </table>
