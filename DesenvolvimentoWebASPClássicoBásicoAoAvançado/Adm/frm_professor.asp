@@ -1,4 +1,4 @@
-<!--#include file="../../caracteres_utf8.asp"-->
+<!--#include file="includes/caracteres_utf8.asp"-->
 <!--#include file="topo.asp"-->  
 <!--#include file="wpg_cnx.asp"-->  
 
