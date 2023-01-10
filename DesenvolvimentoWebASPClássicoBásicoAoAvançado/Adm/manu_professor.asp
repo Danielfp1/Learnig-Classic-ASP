@@ -1,9 +1,10 @@
 <br>
+<!--#include file="../../caracteres_utf8.asp"-->  
 <!--#include file="funcoes.asp"-->
 <!--#include file="wpg_cnx.asp"-->
 <%
 session.LCID = 1046
-'RECEBENDO CAMPOS DO FORMULÁRIO
+'RECEBENDO CAMPOS DO FORMULÃRIO
 opc          = request.querystring("opc")
 botao        =  request.form("botao")
 cod          =  request.form("hfcod")
@@ -28,7 +29,7 @@ if botao = "Incluir" then
    conexao.execute(sql)
 %>
 <script>
-    alert("Professor incluído com sucesso!")
+    alert("Professor incluÃ­do com sucesso!")
     parent.location = "cst_professor.asp"
 </script>
 <%
@@ -57,7 +58,7 @@ elseif opc <> "" then
 '   conexao.execute(sql)
 %>
 <script>
-    alert("Linha excluída com sucesso!")
+    alert("Linha excluï¿½da com sucesso!")
     parent.location = "cst_modelo.asp"
 </script>
 <%
