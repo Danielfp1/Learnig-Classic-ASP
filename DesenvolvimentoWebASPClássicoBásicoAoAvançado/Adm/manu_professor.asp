@@ -34,19 +34,23 @@ if botao = "Incluir" then
 </script>
 <%
 elseif botao = "Alterar" then
-' ALTERANDO OS DADOS RECEBIDOS NA TABELA
 
-'  sql = "update TABELA set"
-'  sql = sql & " CAMPO1 = '"&variavel1&"',"
-'  sql = sql & " CAMPO2 = '"&variavel2&"'"  
-'  sql = sql & " where codigo = "&cod
+'ALTERANDO OS DADOS RECEBIDOS NA TABELA
+
+sql = "update tb_professor set"
+sql = sql & " ds_professor = '"&nome&"',"
+sql = sql & " cpf = '"&cpf&"',"  
+sql = sql & " data_nascimento = '"&data_banco(nascimento)&"',"
+sql = sql & " endereco = '"&endereco&"',"
+sql = sql & " email = '" &email&"'"
+sql = sql & " where cd_professor = " &cod
 'response.write sql
 'response.end
-'  conexao.execute(sql)
+conexao.execute(sql)
 %>
 <script>
     alert("Dados alterado com sucesso!")
-    parent.location = "cst_modelo.asp"
+    parent.location = "cst_professor.asp"
 </script>
 <%
 elseif opc <> "" then

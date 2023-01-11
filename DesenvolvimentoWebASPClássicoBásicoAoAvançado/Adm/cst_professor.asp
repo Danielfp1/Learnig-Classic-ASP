@@ -42,7 +42,7 @@ function Excluir(cod)
 do while not rs.eof%>
       <tr>
         <td>
- <a href="frm_modelo.asp?evt=alt&cod=<%=rs("cd_professor")%>">
+ <a href="frm_professor.asp?evt=alt&cod=<%=rs("cd_professor")%>">
 <img src="imagens/alt.jpg">
         </a>		
 		</td>
